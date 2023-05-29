@@ -15,13 +15,16 @@ import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 @Table(name = "order_item")
 @Getter
 public class OrderItem extends AbstractEntity<OrderItemId> {
+
     private Money itemPrice;
+
     @Column(name = "qty", nullable = false)
     private int quantity;
+
     @AttributeOverride(name = "id", column = @Column(name = "product_id", nullable = false))
     private ProductId productId;
 
-    private OrderItem() {
+    protected OrderItem() {
         super(DomainObjectId.randomId(OrderItemId.class));
     }
 

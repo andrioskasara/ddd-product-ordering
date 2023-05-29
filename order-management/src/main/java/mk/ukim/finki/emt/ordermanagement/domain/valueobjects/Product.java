@@ -20,7 +20,7 @@ public class Product implements ValueObject {
         this.id = ProductId.randomId(ProductId.class);
         this.name = "";
         this.description = "";
-        this.price = Money.valueOf(Currency.MKD, 0);
+        this.price = Money.valueOf(Currency.MKD, 0.0);
         this.sales = 0;
     }
 

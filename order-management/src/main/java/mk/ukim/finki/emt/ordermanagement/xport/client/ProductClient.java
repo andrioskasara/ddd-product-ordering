@@ -18,21 +18,20 @@ public class ProductClient {
     private final String serverUrl;
 
     public ProductClient(@Value("${app.product-catalog.url}") String serverUrl) {
-        this.restTemplate = new RestTemplate();
         this.serverUrl = serverUrl;
+        this.restTemplate = new RestTemplate();
         var requestFactory = new SimpleClientHttpRequestFactory();
         this.restTemplate.setRequestFactory(requestFactory);
     }
 
     private UriComponentsBuilder uri() {
-        return UriComponentsBuilder.fromUriString(serverUrl);
+        return UriComponentsBuilder.fromUriString(this.serverUrl);
     }
 
     public List<Product> findAll() {
         try {
-            return restTemplate.exchange(uri().path("/api/product").build().toUri(), HttpMethod.GET, null,
-                    new ParameterizedTypeReference<List<Product>>() {
-                    }).getBody();
+            return restTemplate.exchange(uri().path("/api/product").build().toUri(), HttpMethod.GET,null, new ParameterizedTypeReference<List<Product>>() {
+            }).getBody();
         } catch (Exception e) {
             return Collections.emptyList();
         }

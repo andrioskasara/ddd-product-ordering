@@ -8,7 +8,6 @@ import mk.ukim.finki.emt.ordermanagement.domain.valueobjects.ProductId;
 import mk.ukim.finki.emt.ordermanagement.service.forms.OrderForm;
 import mk.ukim.finki.emt.ordermanagement.service.forms.OrderItemForm;
 import mk.ukim.finki.emt.ordermanagement.xport.client.ProductClient;
-import mk.ukim.finki.emt.sharedkernel.domain.base.DomainObjectId;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Currency;
 import mk.ukim.finki.emt.sharedkernel.domain.financial.Money;
 import org.junit.jupiter.api.Assertions;
@@ -59,7 +58,6 @@ public class OrderServiceImplTests {
     @Test
     public void testPlaceOrderWithRealData() {
         List<Product> productList = productClient.findAll();
-        System.out.println(productList);
         Product p1 = productList.get(0);
         Product p2 = productList.get(1);
 

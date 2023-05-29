@@ -20,11 +20,11 @@ public class Product extends AbstractEntity<ProductId> {
     })
     private Money productPrice;
 
-    private Product() {
+    protected Product() {
         super(ProductId.randomId(ProductId.class));
     }
 
-    public static Product build(String productName, String productDescription, Money productPrice, int sales){
+    public static Product build(String productName, String productDescription, Money productPrice, int sales) {
         Product product = new Product();
         product.productName = productName;
         product.productDescription = productDescription;
@@ -34,7 +34,7 @@ public class Product extends AbstractEntity<ProductId> {
     }
 
     public void addSales(int qty) {
-        this.sales += qty;
+        this.sales = this.sales - qty;
     }
 
     public void removeSales(int qty) {

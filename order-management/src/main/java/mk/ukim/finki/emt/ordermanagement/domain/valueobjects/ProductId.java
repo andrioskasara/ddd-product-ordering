@@ -5,7 +5,7 @@ import mk.ukim.finki.emt.sharedkernel.domain.base.DomainObjectId;
 
 @Embeddable
 public class ProductId extends DomainObjectId {
-    private ProductId() {
+    protected ProductId() {
         super(ProductId.randomId(ProductId.class).getId());
     }
 
